@@ -1,0 +1,23 @@
+<!--Only need to write the html not inherited from the parent (layout.html) -->
+<!-- give direction as to what we're doing using the extends key word -->
+
+{% extends "layout.html" %}
+
+<!-- want to override the content block -->
+
+{% block content %}
+  <!-- Can write code as long as you use curly braces and percents to section it off -->
+  {% for p in posts %}
+    <!-- to reference variables, use double curly braces -->
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ p.author }}</a>
+          <small class="text-muted">{{ p.date_posted }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ p.title }}</a></h2>
+        <p class="article-content">{{ p.content }}</p>
+      </div>
+    </article>
+  {% endfor  %}
+{% endblock content %}
